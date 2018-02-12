@@ -1,0 +1,46 @@
+{% extends "home.html" %}
+{% load staticfiles %}
+{% block splash %}
+  <div class="jumbotron jumbotron-carousel corporate-jumbo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8">
+          <h1>{% include "_brandname.html" %}</h1>
+          <p>PLease fill your Details we will show you whether you will have diabeties or not .</p>
+	  <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign up for Free!</a>
+        </div>
+        <div class="col-md-4 col-sm-4">
+
+        </div>
+      </div>
+    </div>
+  </div>
+{%endblock%}
+{% block container %}
+<!-- <div class="container"> -->
+
+
+
+<form action="" method="post">{% csrf_token %}
+    <!-- {{ form.as_ul }} -->
+    
+    <table >
+    	<tbody>
+    	{% for field in form %}
+    		
+    			<tr>
+      				<td>
+        				<label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+      					</td>
+     				<td>
+        			{{ field }}
+      				</td>
+   				 </tr>
+    	{% endfor %}
+  		 </tbody>
+  	</table>
+    
+    <input type="submit" value="Send message" />
+</form>
+<!-- <div> -->
+{%endblock%}
